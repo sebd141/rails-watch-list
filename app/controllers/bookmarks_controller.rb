@@ -10,6 +10,15 @@ class BookmarksController < ApplicationController
     @bookmark = Bookmark.new
   end
 
+  def edit
+  end
+
+  def update
+    @bookmark.update(bookmark_params)
+    @bookmark.list = @list
+    redirect_to list_path(@list)
+  end
+
   def show
     @bookmark = Bookmark.find(params[:id])
   end

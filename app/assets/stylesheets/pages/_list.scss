@@ -1,3 +1,14 @@
+.image-cover {
+  position:relative;
+}
+h1 {
+  text-align: center;
+  position: absolute;
+  color: white;
+  bottom: 0px;
+  left: 0px;
+  margin-left: 30px;
+}
 .widen-to-parent {
   width: 100%;
 }
@@ -12,6 +23,15 @@
 
 }
 
+#genial {
+  color: black;
+}
+
+
+.card-img-top{
+  position:relative;
+}
+
 
 .form_container
 {
@@ -22,4 +42,26 @@
   margin-top: 20px;
   margin-bottom: 20px;
 
+}
+
+.blockquote {
+  font-style: italic;
+  font-size: 15px;
+  background-color:lightgray;
+  margin: auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+.remove {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+
+}
+
+.card {
+  padding-bottom: 30px;
 }

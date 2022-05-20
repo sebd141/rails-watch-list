@@ -1,20 +1,25 @@
 <div class="container-fluid">
-  <div class="jumbotron cover">
-    <%= image_tag "banner-1155437_1280.png" %>
+  <div class="cover">
+    <%= image_tag "banner-1155437_1280.png", class: 'widen-to-parent' %>
   </div>
-      <h1><%= @list.name %></h1>
-      <div class="d-flex justify-content-around row">
-        <% @list.movies.each do |movie| %>
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="<%= movie.poster_url %>" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title"><%=movie.title%></h5>
-              <p class="card-text"><%=movie.overview%></p>
-              <a href="#" class="btn btn-danger">Delete</a>
-            </div>
-          </div>
-        <% end %>
+
+  <h1><%= @list.name %>'s list</h1>
+    <div class="boutons">
+      <%= link_to "Add a bookmark", new_list_bookmark_path(@list), class:"btn btn-secondary" %>
+    </div>
+  <div class="d-flex justify-content-around row">
+    <% @list.bookmarks.each do |bookmark| %>
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="<%= bookmark.movie.poster_url %>" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title"><%=bookmark.movie.title%></h5>
+          <p class="card-text"><%=bookmark.movie.overview%></p>
+          <%= link_to "Delete bookmark", bookmark_path(bookmark), method: :delete, data: { confirm: "Are you sure?" }, class: 'btn btn-danger text-white'%>
+        </div>
       </div>
-  <%= link_to "Back to homepage", lists_path %>
-  <%= link_to "Add a bookmark", new_list_bookmark_path(@list) %>
+    <% end %>
+  </div>
+    <div class="boutons">
+      <%= link_to "Back to homepage", lists_path, class:"btn btn-secondary" %>
+    </div>
 </div>

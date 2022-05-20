@@ -24,6 +24,12 @@ class BookmarksController < ApplicationController
       render :new
     end
   end
+
+  def destroy
+    @bookmark.destroy
+    # no need for app/views/restaurants/destroy.html.erb
+    redirect_to list_path(@bookmark.list)
+  end
   private
 
   def bookmark_params
@@ -31,6 +37,6 @@ class BookmarksController < ApplicationController
   end
 
   def find_bookmark
-    @bookmark = bookmark.find(params[:id])
+    @bookmark = Bookmark.find(params[:id])
   end
 end
